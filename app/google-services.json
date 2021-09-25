@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "584540561960",
+    "project_id": "ateliecorteserecortes-2f263",
+    "storage_bucket": "ateliecorteserecortes-2f263.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584540561960:android:523865a530a85e85460b1d",
+        "android_client_info": {
+          "package_name": "com.example.atelie_corteserecortes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584540561960-jav2aj2ecmcul5n613l6thlbr6p7p745.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvHg44IArpc-oCTFg9CC1LAHsy_VOOS5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584540561960-jav2aj2ecmcul5n613l6thlbr6p7p745.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
