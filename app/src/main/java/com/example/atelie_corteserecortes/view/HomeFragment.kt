@@ -21,8 +21,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private val activityViewModel : MyViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,16 +54,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun sendMessage(){
-        try {
-            val sendIntent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Olá!")
-                putExtra("Tamara", "${51981031472}@s.whatsapp.net")
-                type = "text/plain"
-                setPackage("com.whatsapp")
-            }
-            startActivity(sendIntent)
-        }catch (e: Exception){
+
+        try{
+            val whatsappIntent = Intent(Intent.ACTION_SEND)
+            whatsappIntent.type = "text/plain"
+            whatsappIntent.setPackage("com.whatsapp")
+            whatsappIntent.putExtra(Intent.EXTRA_TEXT, "Olá. Gostaria de conversar sobre o meu pedido")
+
+            val smsNumber = "51981031472"
+
+            whatsappIntent.putExtra("Tamara", "$smsNumber@s.whatsapp.net")
+
+            startActivity(whatsappIntent)
+        } catch (e: Exception) {
             e.printStackTrace()
             val appPackageName = "com.whatsapp"
             try {

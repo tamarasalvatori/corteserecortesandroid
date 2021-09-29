@@ -60,14 +60,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onActivityResult(requestCode, resultCode, data)
         navGraph = view?.findNavController()!!
 
-        if(requestCode == RC_SIGN_IN) {
-            val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try{
-                val account = accountTask.getResult(ApiException::class.java)
-                firebaseAuthWithGoogleAccount(account)
-            } catch (e: Exception){
-                Log.d(TAG, "onActivityResult: ${e.message}")
+        if (firebaseAuth.currentUser == null) {
+            if(requestCode == RC_SIGN_IN) {
+                val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
+                try{
+                    val account = accountTask.getResult(ApiException::class.java)
+                    firebaseAuthWithGoogleAccount(account)
+                } catch (e: Exception){
+                    Log.d(TAG, "onActivityResult: ${e.message}")
+                }
             }
+        } else {
+            navGraph.navigate(R.id.action_loginFragment_to_homeFragment)
         }
     }
 
